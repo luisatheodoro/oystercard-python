@@ -1,5 +1,6 @@
 class OysterCard:
     MAX_LIMIT = 90
+    MIN_FARE = 2.50
 
     def __init__(self):
         self.balance = 0
@@ -12,10 +13,6 @@ class OysterCard:
         self.balance += value
         return self.balance
 
-    def deduct(self, value):
-        self.balance -= value
-        return self.balance
-
     def touch_in(self):
         if self.balance <= 0:
             raise Exception("Your don't have enough balance")
@@ -23,7 +20,13 @@ class OysterCard:
             self.is_in_journey = True
 
     def touch_out(self):
+        self._deduct(self.MIN_FARE)
         self.is_in_journey = False
+        return self.balance
+
+    def _deduct(self, value):
+        self.balance -= value
+        return self.balance
 
     def _is_max_limit_exceeded(self, value):
         return self.balance + value > self.MAX_LIMIT

@@ -8,7 +8,8 @@ class OysterCardTest(unittest.TestCase):
         self.assertEqual(OysterCard().balance, 0)
 
     def test_customer_can_top_up(self):
-        self.assertEqual(OysterCard().top_up(10), 10)
+        oyster_card = OysterCard()
+        self.assertEqual(oyster_card.top_up(10), oyster_card.balance)
 
     def test_raises_error_if_top_up_above_card_limit(self):
         with self.assertRaises(Exception) as cm:
@@ -19,23 +20,23 @@ class OysterCardTest(unittest.TestCase):
             str(cm.exception)
         )
 
-    def test_money_is_deducted_from_balance(self):
+    def test_money_is_deducted_from_balance_at_checkout(self):
         oyster_card = OysterCard()
         oyster_card.top_up(10)
-        self.assertEqual(oyster_card.deduct(4), 6)
+        self.assertEqual(oyster_card.touch_out(), oyster_card.balance)
 
     def test_is_not_in_journey_by_default(self):
         self.assertIs(OysterCard().is_in_journey, False)
 
     def test_is_in_journey_after_touch_in(self):
         oyster_card = OysterCard()
-        oyster_card.top_up(1)
+        oyster_card.top_up(10)
         oyster_card.touch_in()
         self.assertIs(oyster_card.is_in_journey, True)
 
     def test_is_not_in_journey_after_touch_out(self):
         oyster_card = OysterCard()
-        oyster_card.top_up(1)
+        oyster_card.top_up(10)
         oyster_card.touch_in()
         oyster_card.touch_out()
         self.assertIs(oyster_card.is_in_journey, False)
