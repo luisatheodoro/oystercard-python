@@ -19,6 +19,11 @@ class OysterCardTest(unittest.TestCase):
             str(cm.exception)
         )
 
+    def test_money_is_deducted_from_balance(self):
+        oyster_card = OysterCard()
+        print oyster_card.top_up(10)
+        self.assertEqual(oyster_card.deduct(4), 6)
+
 
 if __name__ == "__main__":
     unittest.main()
