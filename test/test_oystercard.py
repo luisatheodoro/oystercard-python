@@ -20,7 +20,7 @@ class OysterCardTest(unittest.TestCase):
             str(cm.exception)
         )
 
-    def test_money_is_deducted_from_balance_at_checkout(self):
+    def test_money_is_deducted_from_balance_at_touch_out(self):
         oyster_card = OysterCard()
         oyster_card.top_up(10)
         self.assertEqual(oyster_card.touch_out(), oyster_card.balance)
@@ -45,7 +45,17 @@ class OysterCardTest(unittest.TestCase):
         with self.assertRaises(Exception) as cm:
             OysterCard().touch_in()
         self.assertEqual(
-            "Your don't have enough balance",
+            "Your don't have enough funds",
+            str(cm.exception)
+        )
+
+    def test_raises_error_if_touch_in_without_min_fare(self):
+        with self.assertRaises(Exception) as cm:
+            oyster_card = OysterCard()
+            oyster_card.top_up(2)
+            oyster_card.touch_in()
+        self.assertEqual(
+            "Your don't have enough funds",
             str(cm.exception)
         )
 

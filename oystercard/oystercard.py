@@ -14,8 +14,8 @@ class OysterCard:
         return self.balance
 
     def touch_in(self):
-        if self.balance <= 0:
-            raise Exception("Your don't have enough balance")
+        if self._is_not_enough_funds():
+            raise Exception("Your don't have enough funds")
         else:
             self.is_in_journey = True
 
@@ -30,3 +30,6 @@ class OysterCard:
 
     def _is_max_limit_exceeded(self, value):
         return self.balance + value > self.MAX_LIMIT
+
+    def _is_not_enough_funds(self):
+        return self.balance < self.MIN_FARE
