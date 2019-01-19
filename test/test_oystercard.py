@@ -21,8 +21,24 @@ class OysterCardTest(unittest.TestCase):
 
     def test_money_is_deducted_from_balance(self):
         oyster_card = OysterCard()
-        print oyster_card.top_up(10)
+        oyster_card.top_up(10)
         self.assertEqual(oyster_card.deduct(4), 6)
+
+    def test_is_not_in_journey_by_default(self):
+        self.assertIs(OysterCard().is_in_journey, False)
+
+    def test_is_in_journey_after_touch_in(self):
+        oyster_card = OysterCard()
+        oyster_card.touch_in()
+        self.assertIs(oyster_card.is_in_journey, True)
+
+    def test_is_not_in_journey_after_touch_out(self):
+        oyster_card = OysterCard()
+        oyster_card.touch_in()
+        oyster_card.touch_out()
+        self.assertIs(oyster_card.is_in_journey, False)
+
+
 
 
 if __name__ == "__main__":
