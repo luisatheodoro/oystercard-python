@@ -17,7 +17,10 @@ class OysterCard:
         return self.balance
 
     def touch_in(self):
-        self.is_in_journey = True
+        if self.balance <= 0:
+            raise Exception("Your don't have enough balance")
+        else:
+            self.is_in_journey = True
 
     def touch_out(self):
         self.is_in_journey = False
