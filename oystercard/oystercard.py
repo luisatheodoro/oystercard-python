@@ -4,7 +4,6 @@ class OysterCard:
 
     def __init__(self):
         self.balance = 0
-        self.is_in_journey = False
         self.entry_station = None
 
     def top_up(self, value):
@@ -18,22 +17,25 @@ class OysterCard:
         if self._is_not_enough_funds():
             raise Exception("Your don't have enough funds")
         else:
-            self.is_in_journey = True
             self.entry_station = entry_station
             return self.balance
 
     def touch_out(self):
         self._deduct(self.MIN_FARE)
-        self.is_in_journey = False
         self.entry_station = None
         return self.balance
 
     def _deduct(self, value):
         self.balance -= value
-        return self.balance
 
     def _is_max_limit_exceeded(self, value):
         return self.balance + value > self.MAX_LIMIT
 
     def _is_not_enough_funds(self):
         return self.balance < self.MIN_FARE
+
+    def _is_in_journey(self):
+        if self.entry_station is None:
+            return False
+        else:
+            return True

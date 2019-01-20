@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d9223bf6-6e14-4ae2-a63c-6294110e1ae7" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/tox.ini" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/oystercard/oystercard.py" afterPath="$PROJECT_DIR$/oystercard/oystercard.py" />
       <change beforePath="$PROJECT_DIR$/test/test_oystercard.py" afterPath="$PROJECT_DIR$/test/test_oystercard.py" />
@@ -19,8 +18,8 @@
       <file leaf-file-name="test_oystercard.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/test_oystercard.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="75" column="0" lean-forward="true" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+            <state relative-caret-position="277">
+              <caret line="45" column="31" lean-forward="true" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -51,8 +50,8 @@
       <file leaf-file-name="oystercard.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/oystercard/oystercard.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="399">
+              <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -301,8 +300,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/test_oystercard.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="75" column="0" lean-forward="true" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+        <state relative-caret-position="277">
+          <caret line="45" column="31" lean-forward="true" selection-start-line="45" selection-start-column="31" selection-end-line="45" selection-end-column="31" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -311,8 +310,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/oystercard/oystercard.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state relative-caret-position="399">
+          <caret line="37" column="8" lean-forward="false" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
           <folding />
         </state>
       </provider>

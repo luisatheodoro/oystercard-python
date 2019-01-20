@@ -31,20 +31,20 @@ class OysterCardTest(unittest.TestCase):
         self.assertEqual(oyster_card.touch_out(), oyster_card.balance)
 
     def test_is_not_in_journey_by_default(self):
-        self.assertIs(OysterCard().is_in_journey, False)
+        self.assertIs(OysterCard()._is_in_journey(), False)
 
     def test_is_in_journey_after_touch_in(self):
         oyster_card = OysterCard()
         oyster_card.top_up(10)
         oyster_card.touch_in(self.victoria_station())
-        self.assertIs(oyster_card.is_in_journey, True)
+        self.assertIs(oyster_card._is_in_journey(), True)
 
     def test_is_not_in_journey_after_touch_out(self):
         oyster_card = OysterCard()
         oyster_card.top_up(10)
         oyster_card.touch_in(self.victoria_station())
         oyster_card.touch_out()
-        self.assertIs(oyster_card.is_in_journey, False)
+        self.assertIs(oyster_card._is_in_journey(), False)
 
     def test_raises_error_if_touch_in_without_credit(self):
         with self.assertRaises(Exception) as cm:
