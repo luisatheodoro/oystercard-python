@@ -5,6 +5,8 @@ class OysterCard:
     def __init__(self):
         self.balance = 0
         self.entry_station = None
+        self.exit_station = None
+        self.journeys = {}
 
     def top_up(self, value):
         if self._is_max_limit_exceeded(value):
@@ -20,8 +22,9 @@ class OysterCard:
             self.entry_station = entry_station
             return self.balance
 
-    def touch_out(self):
+    def touch_out(self, exit_station):
         self._deduct(self.MIN_FARE)
+        self.exit_station = exit_station
         self.entry_station = None
         return self.balance
 

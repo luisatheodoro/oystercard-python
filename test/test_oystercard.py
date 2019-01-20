@@ -28,7 +28,7 @@ class OysterCardTest(unittest.TestCase):
     def test_money_is_deducted_from_balance_at_touch_out(self):
         oyster_card = OysterCard()
         oyster_card.top_up(10)
-        self.assertEqual(oyster_card.touch_out(), oyster_card.balance)
+        self.assertEqual(oyster_card.touch_out('aldgate east'), oyster_card.balance)
 
     def test_is_not_in_journey_by_default(self):
         self.assertIs(OysterCard()._is_in_journey(), False)
@@ -43,7 +43,7 @@ class OysterCardTest(unittest.TestCase):
         oyster_card = OysterCard()
         oyster_card.top_up(10)
         oyster_card.touch_in(self.victoria_station())
-        oyster_card.touch_out()
+        oyster_card.touch_out('aldgate east')
         self.assertIs(oyster_card._is_in_journey(), False)
 
     def test_raises_error_if_touch_in_without_credit(self):
@@ -69,6 +69,13 @@ class OysterCardTest(unittest.TestCase):
         oyster_card.top_up(10)
         oyster_card.touch_in(self.victoria_station())
         self.assertEqual(oyster_card.entry_station, self.victoria_station())
+
+    def test_card_store_exit_station(self):
+        oyster_card = OysterCard()
+        oyster_card.top_up(10)
+        oyster_card.touch_in(self.victoria_station())
+        oyster_card.touch_out('aldgate east')
+        self.assertEqual(oyster_card.exit_station, 'aldgate east')
 
 
 if __name__ == "__main__":
