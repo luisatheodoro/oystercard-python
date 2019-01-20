@@ -25,8 +25,12 @@ class OysterCard:
     def touch_out(self, exit_station):
         self._deduct(self.MIN_FARE)
         self.exit_station = exit_station
+        self._add_to_journeys_dict(self.entry_station, self.exit_station)
         self.entry_station = None
         return self.balance
+
+    def _add_to_journeys_dict(self, entry_station, exit_station):
+        self.journeys[len(self.journeys) + 1] = {"entry_station": entry_station, "exit_station": exit_station}
 
     def _deduct(self, value):
         self.balance -= value
