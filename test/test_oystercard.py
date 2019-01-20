@@ -77,6 +77,8 @@ class OysterCardTest(unittest.TestCase):
         oyster_card.touch_out('aldgate east')
         self.assertEqual(oyster_card.exit_station, 'aldgate east')
 
+    def test_card_starts_with_empty_journey_by_default(self):
+        self.assertEqual(OysterCard().journeys, {})
 
 if __name__ == "__main__":
     unittest.main()
